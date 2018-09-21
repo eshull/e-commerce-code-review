@@ -1,0 +1,5 @@
+<% binding.pry %>
+$('#item<%= @item.id %>').remove()
+$('.price-container').text('<%= j render("totalprice") %>')
+$('#cartcount').text('<%= cart_qty %>')
+$('#cart-quantity').text('<%= cart_qty %>')
