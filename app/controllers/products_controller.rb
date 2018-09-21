@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_filter :authorize, except: [:index, :show]
+  skip_before_action :authenticate_user!, :only => [:index]
+  skip_before_action :authenticate_user!, :only => [:show]
 
   def index
     @products = Product.all
@@ -18,6 +20,10 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   private

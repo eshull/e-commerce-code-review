@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :admin
   helper_method :current_order
+  before_action :authenticate_user!
+
+  def after_sign_in_path_for(resource)
+    app_dashboard_index_path
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
