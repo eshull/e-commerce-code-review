@@ -1,8 +1,11 @@
-<% binding.pry %>
+
 $("#hide_cart").click(function(){
-    $("#hide-show").hide();
+
+    $(this).find("#product").hide();
 });
 
 $("#show_cart").click(function(){
-    $("#hide-show").show();
+
+    $(this).find("#product").show();
+
 });

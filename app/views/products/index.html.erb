@@ -3,17 +3,24 @@
 <div class="row">
   <div class="section">
   <% @products.each do |product| %>
-    <div class="col s4">
-      <%= link_to "Show Cart", products_path, id: "show_cart", class: "btn btn-success", remote: true %>
-      <%= link_to "Hide Cart", products_path, id: "hide_cart", class: "btn btn-danger", remote: true %>
-      <button> <h4><%= product.name %></h4> </button>
-      <p><%= product.description %></p>
-      <p><%= number_to_currency product.price %></p>
-      <%= form_for @order_item, remote: true do |f| %>
-        <%= f.hidden_field :product_id, value: product.id %>
-        <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!" %>
-        <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
-      <% end %>
+    <div class="col s4 show_cart hide_cart">
+      <div class="">
+        <h4><%= product.name %></h4>
+        <div>
+          <%= link_to "Show Cart", products_path, id: "show_cart", class: "btn btn-success", remote: true %>
+          <%= link_to "Hide Cart", products_path, id: "hide_cart", class: "btn btn-danger", remote: true %>
+        </div>
+      </div>
+      <div id="product">
+        <p><%= product.description %></p>
+        <p><%= number_to_currency product.price %></p>
+        <%= form_for @order_item, remote: true do |f| %>
+          <%= f.hidden_field :product_id, value: product.id %>
+          <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!" %>
+          <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
+        <% end %>
+      </div>
+
     </div>
   <% end %>
 </div>
