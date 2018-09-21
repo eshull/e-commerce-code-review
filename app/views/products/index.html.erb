@@ -3,13 +3,15 @@
 <div class="row">
   <div class="section">
   <% @products.each do |product| %>
+  <div>
+    <%= link_to "Show Product", products_path, id: "show_product", class: "btn btn-success", remote: true %>
+    <%= link_to "Hide Product", products_path, id: "hide_product", class: "btn btn-danger", remote: true %>
+  </div>
+  <div id="product<%=product.id%>">
     <div class="col s4">
       <div class="">
         <h4><%= product.name %></h4>
-        <div>
-          <%= link_to "Show Cart", products_path, id: "show_cart", class: "btn btn-success", remote: true %>
-          <%= link_to "Hide Cart", products_path, id: "hide_cart", class: "btn btn-danger", remote: true %>
-        </div>
+
       </div>
       <div id="product">
         <p><%= product.description %></p>
@@ -22,6 +24,8 @@
       </div>
 
     </div>
+  </div>
+
   <% end %>
 </div>
 </div>

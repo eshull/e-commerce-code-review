@@ -1,8 +1,8 @@
 
-$("#hide_cart").click(function(){
-    $("#product").hide();
+$("#hide_product").click(function(){
+    $("#product<%= @product.id %>").hide();
 });
 
-$("#show_cart").click(function(){
-    $("#product").show();
+$("#show_product").click(function(){
+    $("#product<%= @product.id %>").show();
 });
