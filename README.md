@@ -9,6 +9,10 @@ An e-commerce site for a client.
 
 #Users should be able to remove items from the shopping cart without a page reload. The "delete" link should result in the item being removed from the shopping cart and the total price being updated.
 
+* Add flash messages for signing up, signing in and signing out.
+
+* Fix the row height for products, which can quickly become uneven.
+
 
 ## Database creation
 After cloning the repo, from the root of the repo run the following commands:
