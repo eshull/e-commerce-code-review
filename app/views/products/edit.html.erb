@@ -1,0 +1,14 @@
+<h1>Edit a product</h1>
+
+<% if admin %>
+  <%= form_for @product do |f| %>
+    Name: <%= f.text_field :name %>
+    Description: <%= f.text_field :description %>
+    Price: <%= f.text_field :price, data: {autonumeric: {vMin: 0.00}}  %>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
+<% else %>
+  <h1>Only admins can edit new products!</h1>
+<% end %>
