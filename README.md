@@ -8,6 +8,7 @@ An e-commerce site for a client.
 # Users should be able to click on a product and show/hide the product detail using AJAX. The product detail should include an image, the description, and any other fields you choose to add.
 
 #Users should be able to remove items from the shopping cart without a page reload. The "delete" link should result in the item being removed from the shopping cart and the total price being updated.
+* Ensure that users can't order a negative number of items.
 
 * Add flash messages for signing up, signing in and signing out.
 

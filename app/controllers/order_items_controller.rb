@@ -3,11 +3,14 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @item = @order.order_items.new(item_params)
-    @order.save
-    session[:order_id] = @order.id
-    respond_to do |format|
-       format.html { redirect_to products_path }
-       format.js
+    if @order.save
+        binding.pry
+      session[:order_id] = @order.id
+      respond_to do |format|
+         format.html { redirect_to products_path }
+         format.js
+      end
+    else flash[:alert] = "You cannot order a negative amount."
     end
   end
 
