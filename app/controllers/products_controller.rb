@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_filter :authorize, except: [:index, :show]
+  before_filter :authorize, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -20,11 +20,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def update
+    @product = Product.find(params[:id])
+    @product.update_attributes(product_params)
+    binding.pry
+     if @product.save
+      flash[:notice] = "Product successfully updated!"
+      redirect_to products_path
+    else
+      flash[:notice] = "Error occurred while updating!"
+    end
+  end
+
   def destroy
      @product = Product.find(params[:id])
      @product.destroy
      flash[:notice] = "Product successfully destroyed!"
      redirect_to products_path
+  end
+
+  def show
+    @products = Product.all
   end
 
   private
