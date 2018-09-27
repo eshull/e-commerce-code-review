@@ -1,9 +1,13 @@
 <h1>Add a product.</h1>
 
+<% if current_user.admin? %>
   <%= form_for @product do |f| %>
     Name: <%= f.text_field :name %>
     Description: <%= f.text_field :description %>
     Password: <%= f.number_field :price %>
   <%= f.submit "Submit" %>
 
+<% end %>
+<% else %>
+  <h1>Only admins can add new products!<% current_user.admin? %></h1>
 <% end %>
