@@ -14,6 +14,10 @@ An e-commerce site for a client.
 
 * Fix the row height for products, which can quickly become uneven.
 
+* Add product update and delete functionality for admins.
+
+* Allow other than whole dollar amounts for admin product creation (for instance, 3.99).
+
 
 ## Database creation
 After cloning the repo, from the root of the repo run the following commands:

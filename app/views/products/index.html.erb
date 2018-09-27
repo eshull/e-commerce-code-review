@@ -21,6 +21,11 @@
             <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!" %>
             <span class="waves-effect waves-light btn"><%= f.submit "Add to cart" %></span>
           <% end %>
+          <% if admin %>
+          <h5><%= link_to "Delete", product_path(product),
+                        :data => {:confirm => "Confirm Product Deletion?",
+                                  :method => "delete this product"} %></h5>
+            <% end %>
         </div>
 
       </div>
